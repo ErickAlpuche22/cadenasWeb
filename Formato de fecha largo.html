@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <body>
+        <h1><p>Fecha en	formato	largo.	Ejemplo:	23	de	octubre	de	2020</p></h1>
+        <p>Debe iniciar por el número del día Ejemplo: 23</p>
+        <p>El año igual tiene que estar en formato de números</p>
+        <p>Puede tener espacios en blanco para separar los datos</p>
+        <form action="javascript:codigo()">
+            <label>Ingrese una fecha en formato largo</label>
+            <input type="text" id="fech" >
+            <input type="submit"  value = "ENVIAR"> <!-- onclick="codigo()"--> 
+        </form>
+        <script>
+            function codigo(){
+
+                    let fech = document.getElementById("fech").value;
+                    //                   20                     de                      oct                       de         2000
+                    const condicion = /[0-9]{1,2}(|\/|\s){0,1}([A-Z]){0,9}(|\/|\s){0,1}([A-Z]){0,9}(|\/|\s){0,1}([A-Z]){0,2}([0-9]){2,4}$/;
+                    alert(condicion.test(fech));
+                    if(condicion.test(fech)){
+                    localStorage.setItem('fech',fech);
+                    window.location="fechResultados.html";
+                        }else{
+                            alert("La fecha no cumple con las indicaciones establecidas");
+                        }            
+                    
+                
+            }
+        </script>
+    </body>
+</html>
